@@ -33,7 +33,7 @@ function Section({ children, style }) {
 }
 
 export default function App() {
-  const [balance, setBalance] = useState(initialBalance)
+  const [balance, setBalance] = useState(Math.max(0, initialBalance))
   const [view, setView] = useState('dashboard') // 'dashboard' | 'purchase'
   const [dismissedNudges, setDismissedNudges] = useState(new Set())
 
@@ -41,7 +41,7 @@ export default function App() {
   const showNudge = threshold !== null && !dismissedNudges.has(threshold)
 
   function handlePurchase(credits) {
-    setBalance(b => b + credits)
+    setBalance(b => Math.max(0, b + credits))
     setView('dashboard')
     // Clear dismissed nudges since balance changed
     setDismissedNudges(new Set())
@@ -53,7 +53,7 @@ export default function App() {
 
   // Compute projection
   const avgDailyBurn = totalConsumed / 30
-  const daysLeft = avgDailyBurn > 0 ? Math.floor(balance / avgDailyBurn) : 999
+  const daysLeft = avgDailyBurn > 0 ? Math.floor(Math.max(0, balance) / avgDailyBurn) : 999
   const depletionDate = new Date('2026-03-23')
   depletionDate.setDate(depletionDate.getDate() + daysLeft)
   const depletionLabel = depletionDate.toLocaleDateString('en-US', {
