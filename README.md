@@ -24,7 +24,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open the URL printed in the terminal (e.g. `http://localhost:5175/`) in your browser. Vite will pick an available port if the default is in use.
 
 ## Scripts
 
