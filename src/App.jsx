@@ -162,7 +162,7 @@ export default function App() {
 
                   <div style={{ fontSize: 12, color: '#71717a', marginTop: 10 }}>
                     {balance > 0 ? (
-                      <>At this pace, credits last until <strong style={{ color: '#18181b' }}>{depletionLabel}</strong></>
+                      <>At this pace, credits last until <strong style={{ color: '#18181b' }}>{depletionLabel}</strong> <span style={{ color: '#a1a1aa' }}>({daysLeft} day{daysLeft !== 1 ? 's' : ''})</span></>
                     ) : (
                       <span style={{ color: '#ef4444' }}>No credits remaining</span>
                     )}
