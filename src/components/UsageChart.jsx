@@ -4,7 +4,7 @@ import {
 } from 'recharts'
 import { usageHistory } from '../mockData'
 
-const CustomTooltip = ({ active, payload, label }) => {
+const CustomTooltip = ({ active, payload }) => {
   if (!active || !payload?.length) return null
   return (
     <div style={{
@@ -15,7 +15,7 @@ const CustomTooltip = ({ active, payload, label }) => {
       fontSize: 13,
       color: '#18181b',
     }}>
-      <div style={{ fontWeight: 500 }}>{label}</div>
+      <div style={{ fontWeight: 500 }}>{payload[0].payload.label}</div>
       <div style={{ color: '#71717a', marginTop: 2 }}>{payload[0].value} credits</div>
     </div>
   )
